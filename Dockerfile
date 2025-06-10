@@ -32,8 +32,6 @@ ENV APP_ENV=production
 ENV APP_DEBUG=false
 
 # Instala Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-RUN composer install --no-dev --optimize-autoloader
 
 # Instala Node.js 18
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
