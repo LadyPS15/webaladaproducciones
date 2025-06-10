@@ -1,4 +1,4 @@
-# Habilitar el módulo de reescritura 
+# Habilitar el módulo de reescritura
 RewriteEngine On
 
 # ===== REGLAS PARA CARPETA ADMIN =====
@@ -44,7 +44,13 @@ RewriteCond %{THE_REQUEST} \s+/([^/\s?]+)\.php[\s?] [NC]
 RewriteCond %{REQUEST_URI} !^/admin/
 RewriteRule ^ /%1? [R=301,L]
 
-# Permitir el acceso a los directorios assets e img
+# Evitar acceso directo a archivos sensibles
+<Files ".htaccess">
+Order allow,deny
+Deny from all
+</Files>
+
+# Permitir acceso a los directorios assets e img
 <Directory "/var/www/html/assets">
     Options Indexes FollowSymLinks
     AllowOverride All
@@ -56,12 +62,6 @@ RewriteRule ^ /%1? [R=301,L]
     AllowOverride All
     Require all granted
 </Directory>
-
-# Evitar acceso directo a archivos sensibles
-<Files ".htaccess">
-Order allow,deny
-Deny from all
-</Files>
 
 # Opcional: Configurar páginas de error personalizadas
 # ErrorDocument 404 /error404.html
