@@ -15,13 +15,13 @@ RUN a2enmod rewrite
 # Asegúrate de que Apache sirva desde el directorio correcto
 RUN echo "DirectoryIndex index.php" >> /etc/apache2/apache2.conf
 
-# Configura el DocumentRoot para usar la carpeta public de Laravel
-ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+# Configura el DocumentRoot para usar la carpeta public (si usas Laravel u otro sistema que tenga una carpeta pública)
+ENV APACHE_DOCUMENT_ROOT /var/www/html
 
 # Actualiza la configuración de Apache para usar el nuevo DocumentRoot
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/000-default.conf
 
-# Habilita el módulo de reescritura (en caso de que no se haya habilitado)
+# Habilita el módulo de reescritura
 RUN a2enmod rewrite
 
 # Establece el directorio de trabajo
@@ -30,22 +30,11 @@ WORKDIR /var/www/html
 # Copia los archivos del proyecto al contenedor
 COPY . .
 
-# Establece el entorno de producción antes de instalar dependencias
-ENV APP_ENV=production
-ENV APP_DEBUG=false
-
-# Instalar Composer de manera confiable
-RUN curl -sS https://getcomposer.org/installer | php
-RUN mv composer.phar /usr/local/bin/composer
-
-# Instalar las dependencias de Composer
-RUN composer install --no-dev --optimize-autoloader --verbose
-
 # Instala Node.js 18
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get install -y nodejs
 
-# Instala dependencias frontend y compila assets con Vite
+# Instala dependencias frontend y compila assets con npm (si es necesario)
 RUN npm install && npm run build
 
 # Ajusta permisos para asegurar que Apache tenga acceso
