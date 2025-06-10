@@ -48,7 +48,7 @@ if (!empty($_SESSION['user'])) {
 <body>
     <!-- Elemento de audio para reproducir música de fondo -->
     <audio id="backgroundMusic" loop>
-        <source src="../assets/audio/Frédéric Chopin_ Nocturne in E-Flat Major, Op. 9, No. 2.mp3" type="audio/mp3">
+        <source src="/assets/audio/Frédéric Chopin_ Nocturne in E-Flat Major, Op. 9, No. 2.mp3" type="audio/mp3">
         Tu navegador no soporta el elemento de audio.
     </audio>
 
@@ -62,7 +62,7 @@ if (!empty($_SESSION['user'])) {
         <div class="container header-container">
             <div style="display: flex; align-items: center; margin-right: 300px;">
                 <!-- Logo ajustado -->
-                <img src="../img/logo_alada.png" alt="Alada Logo" style="width: 120px; height: auto; margin-right: 10px;">
+                <img src="/assets/img/logo_alada.png" alt="Alada Logo" style="width: 120px; height: auto; margin-right: 10px;">
                 <!-- Contenedor para ALADA y (CATERING Y EVENTOS) alineados verticalmente -->
                 <div style="display: flex; flex-direction: column; align-items: center;">
                     <!-- ALADA -->
@@ -131,7 +131,7 @@ if (!empty($_SESSION['user'])) {
             <div class="decorative-divider"
                 style="display: flex; align-items: center; justify-content: center; margin: auto; max-width: 1500px;">
                 <div style="height: 3px; background-color: #d0d0d0; flex: 3;"></div>
-                <img src="../img/logo_alada.png" alt="Separador"
+                <img src="/img/logo_alada.png" alt="Separador"
                 style="width: 120px; margin: 0 15px; opacity: 0.7;">
             <div style="height: 3px; background-color: #d0d0d0; flex: 3;"></div>
             </div>
@@ -146,7 +146,7 @@ if (!empty($_SESSION['user'])) {
             </div>
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto 30px;">
                 <div class="service-card" style="background-color: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <img src="../img/fotos wedding planner/9.jpg" alt="Wedding Planner" style="width: 100%; height: 230px; object-fit: cover;">
+                    <img src="/img/fotos wedding planner/9.jpg" alt="Wedding Planner" style="width: 100%; height: 230px; object-fit: cover;">
                     <div class="service-content" style="padding: 25px; text-align: center;">
                         <h3 style="font-size: 24px; margin-bottom: 15px; color: #6D4C3D; font-family: 'Playfair Display', serif; font-weight: 500;">Wedding Planner</h3>
                         <p style="margin-bottom: 20px; color: #666; line-height: 1.6;">Detalles de ARTE, MAGIA y AMOR para crear tu boda soñada.</p>
@@ -154,7 +154,7 @@ if (!empty($_SESSION['user'])) {
                     </div>
                 </div>
                 <div class="service-card" style="background-color: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <img src="../img/fotos catering web/5.jpg" alt="Catering" style="width: 100%; height: 230px; object-fit: cover;">
+                    <img src="/img/fotos catering web/5.jpg" alt="Catering" style="width: 100%; height: 230px; object-fit: cover;">
                     <div class="service-content" style="padding: 25px; text-align: center;">
                         <h3 style="font-size: 24px; margin-bottom: 15px; color: #6D4C3D; font-family: 'Playfair Display', serif; font-weight: 500;">Catering</h3>
                         <p style="margin-bottom: 20px; color: #666; line-height: 1.6;">Bebidas, comidas, menaje, mantelería y personal de servicio altamente capacitado.</p>
@@ -162,7 +162,7 @@ if (!empty($_SESSION['user'])) {
                     </div>
                 </div>
                 <div class="service-card" style="background-color: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <img src="../img/fotos fografia y video/6.jpg" alt="Fotografía y Video" style="width: 100%; height: 230px; object-fit: cover;">
+                    <img src="/img/fotos fografia y video/6.jpg" alt="Fotografía y Video" style="width: 100%; height: 230px; object-fit: cover;">
                     <div class="service-content" style="padding: 25px; text-align: center;">
                         <h3 style="font-size: 24px; margin-bottom: 15px; color: #6D4C3D; font-family: 'Playfair Display', serif; font-weight: 500;">Fotografía y Video</h3>
                         <p style="margin-bottom: 20px; color: #666; line-height: 1.6;">Capturamos los momentos más especiales de tu evento con la más alta calidad.</p>
@@ -173,7 +173,7 @@ if (!empty($_SESSION['user'])) {
             <!-- Eventos en una fila separada ocupando la mitad del ancho -->
             <div style="max-width: 400px; margin: 0 auto;">
                 <div class="service-card" style="background-color: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <img src="../img/fotos sociales web/7.jpg" alt="Eventos" style="width: 100%; height: 230px; object-fit: cover;">
+                    <img src="/img/fotos sociales web/7.jpg" alt="Eventos" style="width: 100%; height: 230px; object-fit: cover;">
                     <div class="service-content" style="padding: 25px; text-align: center;">
                         <h3 style="font-size: 24px; margin-bottom: 15px; color: #6D4C3D; font-family: 'Playfair Display', serif; font-weight: 500;">Coffee Break</h3>
                         <p style="margin-bottom: 20px; color: #666; line-height: 1.6;">Especialistas en eventos corporativos, Wedding Planner, fiestas de cumpleaños y eventos especiales.</p>
@@ -191,7 +191,7 @@ if (!empty($_SESSION['user'])) {
             <div class="decorative-divider"
                 style="display: flex; align-items: center; justify-content: center; margin: auto; max-width: 1500px;">
             <div style="height: 3px; background-color: #d0d0d0; flex: 3;"></div>
-            <img src="../img/logo_alada.png" alt="Separador"
+            <img src="/img/logo_alada.png" alt="Separador"
                 style="width: 120px; margin: 0 15px; opacity: 0.7;">
             <div style="height: 3px; background-color: #d0d0d0; flex: 3;"></div>
             </div>
@@ -207,7 +207,7 @@ if (!empty($_SESSION['user'])) {
             <!-- Contenido de la sección -->
             <div class="about-container">
                 <div class="about-image">
-                    <img src="../img/fotos catering web/2.jpg" alt="Sobre Nosotros">
+                    <img src="/img/fotos catering web/2.jpg" alt="Sobre Nosotros">
                 </div>
                 <div class="about-content">
                     <h2>ALADA Catering y Eventos</h2>
@@ -225,7 +225,7 @@ if (!empty($_SESSION['user'])) {
             <div class="decorative-divider"
                 style="display: flex; align-items: center; justify-content: center; margin: auto; max-width: 1500px;">
             <div style="height: 3px; background-color: #d0d0d0; flex: 3;"></div>
-            <img src="../img/logo_alada.png" alt="Separador"
+            <img src="/img/logo_alada.png" alt="Separador"
                 style="width: 120px; margin: 0 15px; opacity: 0.7;">
             <div style="height: 3px; background-color: #d0d0d0; flex: 3;"></div>
             </div>
@@ -247,37 +247,37 @@ if (!empty($_SESSION['user'])) {
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="img/fotos wedding planner/13.jpg" alt="Wedding Planner">
+                    <img src="/img/fotos wedding planner/13.jpg" alt="Wedding Planner">
                     <div class="portfolio-overlay">
                         <a href="#" class="portfolio-view-btn" data-img="img/fotos wedding planner/img_servicio_wedding.jpg"><i class="fas fa-eye"></i></a>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="../img/fotos catering web/14.jpg" alt="Catering">
+                    <img src="/img/fotos catering web/14.jpg" alt="Catering">
                     <div class="portfolio-overlay">
                         <a href="#" class="portfolio-view-btn" data-img="img/fotos catering web/img_servicio_catering.png"><i class="fas fa-eye"></i></a>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="../img/fotos sociales web/6.jpg" alt="Eventos">
+                    <img src="/img/fotos sociales web/6.jpg" alt="Eventos">
                     <div class="portfolio-overlay">
                         <a href="#" class="portfolio-view-btn" data-img="img/fotos eventos sociales/img_servicio_eventos.jpg"><i class="fas fa-eye"></i></a>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="../img/fotos catering web/5.jpg" alt="Catering">
+                    <img src="/img/fotos catering web/5.jpg" alt="Catering">
                     <div class="portfolio-overlay">
                         <a href="#" class="portfolio-view-btn" data-img="img/fotos catering web/img_servicio_catering.png"><i class="fas fa-eye"></i></a>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="../img/fotos wedding planner/11.jpg" alt="Decoración">
+                    <img src="/img/fotos wedding planner/11.jpg" alt="Decoración">
                     <div class="portfolio-overlay">
                         <a href="#" class="portfolio-view-btn" data-img="img/fotos wedding planner/img_portfolio_decoracion.jpg"><i class="fas fa-eye"></i></a>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="../img/fotos eventos sociales/img_servicio_fotovideo.jpg" alt="Fotografía y Video">
+                    <img src="/img/fotos eventos sociales/img_servicio_fotovideo.jpg" alt="Fotografía y Video">
                     <div class="portfolio-overlay">
                         <a href="#" class="portfolio-view-btn" data-img="img/fotos eventos sociales/img_servicio_fotovideo.jpg"><i class="fas fa-eye"></i></a>
                     </div>
@@ -300,7 +300,7 @@ if (!empty($_SESSION['user'])) {
             <div class="decorative-divider"
                 style="display: flex; align-items: center; justify-content: center; margin: auto; max-width: 1500px;">
             <div style="height: 3px; background-color: #d0d0d0; flex: 3;"></div>
-            <img src="../img/logo_alada.png" alt="Separador"
+            <img src="/img/logo_alada.png" alt="Separador"
                 style="width: 120px; margin: 0 15px; opacity: 0.7;">
             <div style="height: 3px; background-color: #d0d0d0; flex: 3;"></div>
             </div>
@@ -390,7 +390,7 @@ if (!empty($_SESSION['user'])) {
             <div class="footer-container">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <img src="../img/logo_alada.png" alt="Alada Logo" style="filter: brightness(0) invert(1);">
+                        <img src="/img/logo_alada.png" alt="Alada Logo" style="filter: brightness(0) invert(1);">
                     </div>
                     <p>Un lugar exclusivo y distinto para celebrar tus eventos. Ofrecemos distintas opciones de servicio integral de planificación.</p>
                 </div>
@@ -442,7 +442,7 @@ if (!empty($_SESSION['user'])) {
         </div>
     </a>
 
-    <script src="../assets/js/scripts-modified.js"></script>
+    <script src="/assets/js/scripts-modified.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Elementos del DOM
