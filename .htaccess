@@ -1,4 +1,4 @@
-# Habilitar el módulo de reescritura
+# Habilitar el módulo de reescritura 
 RewriteEngine On
 
 # ===== REGLAS PARA CARPETA ADMIN =====
@@ -31,6 +31,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !^/admin/
 RewriteCond %{REQUEST_URI} !^/assets/
+RewriteCond %{REQUEST_URI} !^/img/
 RewriteRule ^([^/]+)/?$ $1.php [NC,L]
 
 # ===== REDIRECCIONES PARA URLS LIMPIAS =====
@@ -42,6 +43,19 @@ RewriteRule ^ /%1? [R=301,L]
 RewriteCond %{THE_REQUEST} \s+/([^/\s?]+)\.php[\s?] [NC]
 RewriteCond %{REQUEST_URI} !^/admin/
 RewriteRule ^ /%1? [R=301,L]
+
+# Permitir el acceso a los directorios assets e img
+<Directory "/var/www/html/assets">
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+
+<Directory "/var/www/html/img">
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
 
 # Evitar acceso directo a archivos sensibles
 <Files ".htaccess">
