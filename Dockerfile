@@ -12,6 +12,18 @@ RUN docker-php-ext-install pdo pdo_mysql
 # Habilita mod_rewrite de Apache
 RUN a2enmod rewrite
 
+# Asegúrate de que Apache sirva desde el directorio correcto
+RUN echo "DirectoryIndex index.php" >> /etc/apache2/apache2.conf
+
+# Configura el DocumentRoot para usar la carpeta public de Laravel
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+
+# Actualiza la configuración de Apache para usar el nuevo DocumentRoot
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/000-default.conf
+
+# Habilita el módulo de reescritura (en caso de que no se haya habilitado)
+RUN a2enmod rewrite
+
 # Establece el directorio de trabajo
 WORKDIR /var/www/html
 
@@ -33,16 +45,12 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
 # Instala dependencias frontend y compila assets con Vite
 RUN npm install && npm run build
 
-# Ajusta permisos
+# Ajusta permisos para asegurar que Apache tenga acceso
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 755 /var/www/html
 
-# Cambia la configuración de Apache para servir desde /public
-ENV APACHE_DOCUMENT_ROOT /var/www/html/public
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/000-default.conf
+# Configura el puerto de Apache (en caso de que uses 8080 en vez de 80)
+EXPOSE 8080
 
-# Expone el puerto por defecto de Apache
-EXPOSE 80
-
-# Comando de inicio
+# Comando de inicio de Apache en primer plano
 CMD ["apache2-foreground"]
