@@ -16,15 +16,8 @@ COPY . .
 # Instalar dependencias necesarias para PHP (por ejemplo, zip)
 RUN apt-get update && apt-get install -y libzip-dev && docker-php-ext-install zip
 
-# Instalar Composer para gestionar dependencias de PHP
-RUN curl -sS https://getcomposer.org/installer | php
-RUN mv composer.phar /usr/local/bin/composer
-
-# Instalar dependencias de Composer (si tienes un archivo composer.json)
-RUN composer install
-
 # Exponer el puerto 80 para el acceso web
-EXPOSE 8080
+EXPOSE 80
 
 # Comando para iniciar Apache en primer plano
 CMD ["apache2-foreground"]
