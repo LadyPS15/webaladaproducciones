@@ -27,7 +27,7 @@ RUN a2enmod rewrite
 # Establece el directorio de trabajo
 WORKDIR /var/www/html
 
-# Copia los archivos del proyecto al contenedor
+# Copia los archivos del proyecto al contenedor (incluye assets y img)
 COPY . .
 
 # Establece el entorno de producción antes de instalar dependencias
