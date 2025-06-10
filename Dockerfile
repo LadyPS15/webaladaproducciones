@@ -34,9 +34,12 @@ COPY . .
 ENV APP_ENV=production
 ENV APP_DEBUG=false
 
-# Instala Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-RUN composer install --no-dev --optimize-autoloader
+# Instalar Composer de manera confiable
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer
+
+# Instalar las dependencias de Composer
+RUN composer install --no-dev --optimize-autoloader --verbose
 
 # Instala Node.js 18
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
