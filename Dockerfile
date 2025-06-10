@@ -4,7 +4,7 @@ FROM php:8.2-apache
 # Instala dependencias del sistema
 RUN apt-get update && apt-get install -y \
     git curl zip unzip libpng-dev libonig-dev libxml2-dev libzip-dev \
-    libpq-dev libcurl4-openssl-dev nodejs npm gnupg
+    libpq-dev libcurl4-openssl-dev gnupg
 
 # Instala extensiones necesarias de PHP
 RUN docker-php-ext-install pdo pdo_mysql
@@ -21,9 +21,6 @@ ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 # Actualiza la configuración de Apache para usar el nuevo DocumentRoot
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/000-default.conf
 
-# Habilita el módulo de reescritura (en caso de que no se haya habilitado)
-RUN a2enmod rewrite
-
 # Establece el directorio de trabajo
 WORKDIR /var/www/html
 
@@ -33,13 +30,6 @@ COPY . .
 # Establece el entorno de producción antes de instalar dependencias
 ENV APP_ENV=production
 ENV APP_DEBUG=false
-
-# Instala Node.js 18
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -y nodejs
-
-# Instala dependencias frontend y compila assets con Vite
-RUN npm install && npm run build
 
 # Ajusta permisos para asegurar que Apache tenga acceso
 RUN chown -R www-data:www-data /var/www/html
