@@ -15,11 +15,14 @@ RUN a2enmod rewrite
 # Asegúrate de que Apache sirva desde el directorio correcto
 RUN echo "DirectoryIndex index.php" >> /etc/apache2/apache2.conf
 
-# Configura el DocumentRoot para usar la carpeta public de Laravel
-ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+# Configura el DocumentRoot para usar la carpeta pages (cambia esto según tu estructura)
+ENV APACHE_DOCUMENT_ROOT /var/www/html/pages
 
 # Actualiza la configuración de Apache para usar el nuevo DocumentRoot
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/000-default.conf
+
+# Habilita el módulo de reescritura (en caso de que no se haya habilitado)
+RUN a2enmod rewrite
 
 # Establece el directorio de trabajo
 WORKDIR /var/www/html
